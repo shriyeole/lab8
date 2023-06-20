@@ -1,0 +1,55 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Remainder Page
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <!-- Add Reminder Section -->
+  <ion-card>
+    <ion-card-header>
+      <ion-card-subtitle>Add a Reminder</ion-card-subtitle>
+      <ion-card-title>
+        <ion-input [(ngModel)]="newReminder" placeholder="Enter a reminder"></ion-input>
+      </ion-card-title>
+      <ion-card-content>
+        <ion-button (click)="addReminder()">Add Reminder</ion-button>
+      </ion-card-content>
+    </ion-card-header>
+  </ion-card>
+
+  <!-- Reminders List -->
+  <ion-card *ngFor="let reminder of reminders; let i = index">
+    <ion-item>
+      <ion-label>{{ reminder }}</ion-label>
+      <ion-button color="danger" slot="end" (click)="removeReminder(i)">
+        <ion-icon name="trash"></ion-icon>
+      </ion-button>
+    </ion-item>
+  </ion-card>
+
+  <!-- Add Sticky Note Section -->
+  <ion-card>
+    <ion-card-header>
+      <ion-card-subtitle>Add a Sticky Note</ion-card-subtitle>
+      <ion-card-title>
+        <ion-input [(ngModel)]="newStickyNote" placeholder="Enter a sticky note"></ion-input>
+      </ion-card-title>
+      <ion-card-content>
+        <ion-button (click)="addStickyNote()">Add Sticky Note</ion-button>
+      </ion-card-content>
+    </ion-card-header>
+  </ion-card>
+
+  <!-- Sticky Notes List -->
+  <ion-card *ngFor="let stickyNote of stickyNotes; let i = index">
+    <ion-item>
+      <ion-label>{{ stickyNote }}</ion-label>
+      <ion-button color="danger" slot="end" (click)="removeStickyNote(i)">
+        <ion-icon name="trash"></ion-icon>
+      </ion-button>
+    </ion-item>
+  </ion-card>
+</ion-content>
